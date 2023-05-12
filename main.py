@@ -1,9 +1,9 @@
-from fastapi import FastApi
+from fastapi import FastAPI
 import pickle
 import pandas as pd
 from BankNotes import BankNote
 
-app = FastApi()
+app = FastAPI()
 
 pickle_in = open('classifier.pkl', 'rb')
 clf = pickle.load(pickle_in)
