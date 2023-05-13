@@ -3,8 +3,18 @@ import pickle
 import pandas as pd
 from BankNotes import BankNote
 import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"],
+)
+
 
 pickle_in = open('classifier.pkl', 'rb')
 clf = pickle.load(pickle_in)
